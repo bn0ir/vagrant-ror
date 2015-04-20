@@ -1,0 +1,21 @@
+passenger_root /usr/lib/ruby/vendor_ruby/phusion_passenger/locations.ini;
+passenger_ruby /home/vagrant/.rvm/wrappers/ruby-2.2.1/ruby;
+passenger_default_user vagrant;
+passenger_log_file /vagrant/logs/passenger.nginx.log;
+
+server {
+    listen 80 default_server;
+    keepalive_timeout 70;
+    client_max_body_size 5m;
+
+    root /vagrant/app/public;
+    passenger_enabled on;
+    rails_env development;
+    access_log /vagrant/logs/app.nginx.access.log;
+    error_log /vagrant/logs/app.nginx.error.log;
+
+    location ~ ^/assets/ {
+        root /vagrant/app/app;
+        break;
+    }
+}
