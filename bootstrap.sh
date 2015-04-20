@@ -3,7 +3,7 @@ apt-get install apt-transport-https ca-certificates
 echo "deb https://oss-binaries.phusionpassenger.com/apt/passenger trusty main" > /etc/apt/sources.list.d/passenger.list
 add-apt-repository -y ppa:chris-lea/node.js
 apt-get update && apt-get upgrade -y
-apt-get install -y nginx libgdbm-dev libncurses5-dev automake libtool bison libffi-dev nginx-extras passenger git libpq-dev nodejs g++ postgresql
+apt-get install -y nginx libgdbm-dev libncurses5-dev automake libtool bison libffi-dev nginx-extras passenger git libpq-dev nodejs g++ postgresql libmysqlclient-dev
 
 #install tty.js
 npm install -g tty.js
