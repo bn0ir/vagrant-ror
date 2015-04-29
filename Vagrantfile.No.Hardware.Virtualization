@@ -15,6 +15,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     run: "always"
   config.vm.provider "virtualbox" do |v|
     v.memory = 1024
-    v.customize ["modifyvm", :id, "--hwvirtex", "off", "--natdnshostresolver1", "on"]
+    v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+    v.customize ["modifyvm", :id, "--pae", "off"]
+    v.customize ["modifyvm", :id, "--hwvirtex", "off"]
+    v.customize ["modifyvm", :id, "--vtxvpid", "off"]
+    v.customize ["modifyvm", :id, "--vtxux", "off"]
+    v.customize ["modifyvm", :id, "--cpus", "1"]
   end
 end
